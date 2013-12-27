@@ -33,25 +33,40 @@ int index;
 class Solution {
 public:
 	vector<int> twoSum(vector<int> &numbers, int target) {
-	    map<int, int> numindex;
-		vector<int> numt;
+	    // Note: The Solution object is instantiated only once and is reused by each test case.
+/*		map<int, int> table;
+		map<int, int>::iterator iter;
 		vector<int> result;
-		for(int i=0; i<numbers.size(); i++)
-		{
-			numindex[numbers[i]]=i+1;
-			numt.push_back(numbers[i]);
+		int comp;
+		for (int i = 0;i < numbers.size();++i) {
+			comp = target - numbers[i];
+			iter = table.find(comp);
+			if (iter == table.end()) {
+				table.insert(pair<int, int>(numbers[i], i));
+			} else {
+				result.push_back(iter->second + 1);
+				result.push_back(i + 1);
+				return result;
+			}
 		}
+		return result;
+*/
+		map<int, int> numindex;
+		vector<int> result;
 		
-		sort(numt.begin(), numt.end());
 		
 		for(int i=0; i<numbers.size(); i++)
 		{
-			if(numindex[target-numt[i]] != 0)
+			if(numindex[target-numbers[i]] == 0)
+			{
+			    numindex[numbers[i]]=i+1;
+			}
+			else
 			{	
+				result.push_back(numindex[target-numbers[i]]);
 				result.push_back(i+1);
-				result.push_back(numindex[target-numt[i]]);
 				break;
-			}	
+			}
 		}
 		return result;
 
@@ -108,9 +123,9 @@ int main(int argc, char **argv)
 {
 	Solution sol;
 	vector<int> res;
-	int in[4]={2, 7, 11, 15};
-	vector<int> input(in,in+4);
-	int tar = 18;
+	int in[3]={3, 2, 4};
+	vector<int> input(in,in+3);
+	int tar = 6;
 	res = sol.twoSum(input, tar);
 	cout<<"index1="<<res[0]<<", index2="<<res[1]<<endl;
 	return 0;
