@@ -26,10 +26,12 @@
 #include <map>
 #include <iostream>
 using namespace std;
+/*
 struct numindex{
 int num;
 int index;
 };
+*/
 class Solution {
 public:
 	vector<int> twoSum(vector<int> &numbers, int target) {
