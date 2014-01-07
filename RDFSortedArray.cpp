@@ -13,16 +13,49 @@
  * 
  * 
  **************************************************************************/
- 
+#include <stdio.h>
  
  class Solution {
 	 public:
 		 int removeDuplicates(int A[], int n) {
-		 
+			 if(n==0)
+		     {
+                 return 0;
+			 }
+			 int i=0,j=1;
+			 while(j<n)
+			 {
+				 if(A[i]==A[j])
+				 {
+					 j++;
+				 }
+				 else
+				 {
+					 A[++i] = A[j];
+					 j++;
+				 }
+			 }
+		    return i+1;
 		 }
  };
 
+int main()
+{
+	Solution sol;
+	int count = 0;
+	int A[13]={1,1,2,2,2,3,4,5,6,7,7,7,7};
+	//int arrsize = sizeof(A);
+	int i;
+	count = sol.removeDuplicates(A,13);
+	printf("%d\n",count);
+	for(i=0; i<count; i++)
+	{
+		printf("%d ", A[i]);
+	}
+	printf("\n");
+return 0;
 
+}
 
 
 
