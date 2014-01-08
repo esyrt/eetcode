@@ -1,0 +1,42 @@
+/***************************************************************************
+ *Remove Duplicates from Sorted Array II 
+ Follow up for "Remove Duplicates":
+ What if duplicates are allowed at most twice?
+
+ For example,
+ Given sorted array A = [1,1,1,2,2,3],
+
+ Your function should return length = 5, and A is now [1,1,2,2,3].
+ * $Id$ 
+ * 
+ **************************************************************************/
+ 
+ 
+ 
+class Solution {
+	public:
+		    int removeDuplicates(int A[], int n) {
+				        
+				    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* vim: set ts=4 sw=4 sts=4 tw=100 noet: */
