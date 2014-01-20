@@ -31,18 +31,18 @@ class Solution {
 						return mid;
 					}
 					if(A[left]<A[mid])
-					{
+					{//如果前半段有序，升序
 						if(target<A[mid]&&target>=A[left])
-						{
+						{//target落在前半段
 							right = mid-1;
 						}
 						else
-						{
+						{//target落在后半段
 							left = mid+1;
 						}
 					}
 					else
-					{
+					{//后半段升序
 						if(target>A[mid]&&target<=A[right])
 						{
 							left = mid+1;
