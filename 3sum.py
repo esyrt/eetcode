@@ -21,5 +21,22 @@ Note:
 class Solution:
     # @return a list of lists of length 3, [[val1,val2,val3]]
     def threeSum(self, num):        
-
-
+        num.sort()
+        ans = []
+        for i in range(0, len(num)):
+            if (i > 0 and num[i] == num[i-1]):
+                #skip identical num
+                continue
+            left, right = i+1, len(num)-1
+            while left < right:
+                sum = num[left] + num[i] + num[right]
+                if sum == 0:
+                    ans.append([num[left], num[i], num[right]])
+                    while left < right and num[left] == num[left+1]: left = left+1
+                    while left < right and num[right] == num[right-1]: right = right-1
+                    left, right = left+1, right-1
+                elif sum < 0:
+                    left = left+1
+                elif sum > 0:
+                    right = right-1
+        return ans
