@@ -16,4 +16,35 @@ class Solution:
     # @return a list of lists of length 4, [[val1,val2,val3,val4]]
         def fourSum(self, num, target):
             num.sort()
+            ans = []
+            listset = set()
+            if num.length() < 4:
+                return ans
+
+            cache = {}
+            for i in range(0, len(num)):
+                for j in range(i+1, len(num)):
+                    if num[i] + num[j] in cache:
+                        cache[num[i] + num[j]].append([i,j])
+                    else:
+                        cache[num[i] + num[j]] = [[i,j]]
+
+            for a in range(0, len(num)):
+                for b in range(a+1, len(num)):
+                    key = target - num[a] - num[b]
+                    if key not in cache:
+                        continue
+
+                    ca_list = cache[key]
+                    for k in ca_list:
+                        if a <= k[1]:
+                            continue
+                        tmp = [num[k[0]], num[k[1]], num[a], num[b]]
+                        tmp.sort()
+                        
+                        if tuple(tmp) not in listset:
+                            listset.add(tuple(tmp))
+                            ans.append(tmp)
+
+            return ans
 
