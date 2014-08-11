@@ -45,6 +45,8 @@ class Solution:
                         if tuple(tmp) not in listset:
                             listset.add(tuple(tmp))
                             ans.append(tmp)
+                        # another method to remove duplicate
+                        # ans = reduce(lambda x,y : x if y in x else x+[y], [[],]+ans)
 
             return ans
 
