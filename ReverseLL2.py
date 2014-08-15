@@ -19,7 +19,25 @@ class Solution:
     # @param n, an integer
     # @return a ListNode
     def reverseBetween(self, head, m, n):
-        for k in range(m):
+        dummy = ListNode(-1)
+        dummy.next = head
+            
+        prept = dummy
+        for k in range(m-1):
+            prept = prept.next
+
+        head2 = prept
+        prept = head2.next
+        cur = prept.next
+
+        for k in range(n-m):
+            prept.next = cur.next
+            cur.next = head2.next
+            head2.next = cur
+            cur = prept.next
+
+        return dummy.next
+
 
                                     
 
